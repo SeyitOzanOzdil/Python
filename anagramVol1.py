@@ -19,3 +19,5 @@ def anagramVol1 (s1, s2):
             stillOk = False
 
         pos1 = pos1 + 1
+
+    return stillOk
