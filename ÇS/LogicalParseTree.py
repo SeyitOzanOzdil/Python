@@ -16,17 +16,17 @@ def BinaryTree(r):
 def insertLeft(root,newBranch):
     t = root.pop(1)
     if len(t) > 1:
-        root.insert(1,newranch,t,[]])
+        root.insert(1,[newranch],t,[])
     else:
-        root.insert(1,[newBranch,[],[]])
+        root.insert(1,[newBranch],[],[])
     return root
 
 def insertRight(root,newBranch):
     t = root.pop(2)
     if len(t) > 1:
-        root.insert(2,[newranch],t,[]])
+        root.insert(2,[newranch],t,[])
     else:
-        root.insert(1,[newBranch],[],[]])
+        root.insert(1,[newBranch],[],[])
     return root
 
 def getRootVal(root):
@@ -49,18 +49,18 @@ def buildParseTree(fpexp):
     currentTree = eTree
     for i in fplist:
         if i == "(":
-            currentTree.insertLeft('')
+            currentTree.insertLeft(currentTree,'')
             pStack.push(currentTree)
-            currentTree = currentTree.getLeftChild()
+            currentTree = getLeftChild(currentTree)
         elif i not in '+*)':
-            currentTree.setRootVal(i)
+            setRootVal(currentTree, i)
             parent = pStack.pop()
             currentTree = parent
         elif i in "+*":
-            currentTree.setRootVal(i)
-            currentTree.insertRight('')
+            setRootVal(currentTree,i)
+            currentTree.insertRight(currentTree,'')
             pStack.push(currentTree)
-            currentTree = currentTree.getRightChild()
+            currentTree = getRightChild(currentTree)
         elif i == ')':
             currentTree = pStack.pop()
         else:

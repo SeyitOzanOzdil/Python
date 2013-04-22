@@ -1,0 +1,16 @@
+def getLeftChild(root):
+    return root[1]
+
+def get_deep_left(tree):
+    counter = 1
+    if len(tree) == 1:
+        print tree
+    left_root = getLeftChild(tree)
+    while len(left_root) > 1:
+        left_root = getLeftChild(left_root)
+        counter = counter + 1
+        if len(left_root)==1:
+            print left_root
+            return counter
+
+
